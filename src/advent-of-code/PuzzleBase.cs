@@ -1,14 +1,18 @@
-namespace AdventOfCode2023;
+namespace AdventOfCode;
 
 internal abstract class PuzzleBase
 {
     public string Name { get; }
+    public int Year { get; }
+    public int Day { get; }
     public bool IsLongRunning { get; }
     protected string[] Input { get; private set; }
 
-    protected PuzzleBase(string puzzleName, bool longRunning = false)
+    protected PuzzleBase(int year, int day, bool longRunning = false)
     {
-        Name = puzzleName;
+        Year = year;
+        Day = day;
+        Name = $"{year}.{day}";
         IsLongRunning = longRunning;
     }
 
@@ -19,7 +23,7 @@ internal abstract class PuzzleBase
             throw new InvalidDataException("Could not initialize puzzle because it's name is not set.");
         }
 
-        Input = InputLoader.LoadPuzzleInputByName(Name);
+        Input = InputLoader.LoadPuzzleInputByName(Year, Day);
         Console.WriteLine($"Puzzle \u001b[1;92m'{Name}'\u001b[0m: Read \u001b[1;95m{Input.Length}\u001b[0m lines as puzzle input");
     }
 

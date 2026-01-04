@@ -1,10 +1,10 @@
-namespace AdventOfCode2023;
+namespace AdventOfCode;
 
 internal static class InputLoader
 {
-    public static string[] LoadPuzzleInputByName(string puzzleName)
+    public static string[] LoadPuzzleInputByName(int year, int day)
     {
-        var path = Path.Combine("Input", $"{puzzleName}.txt");
+        var path = Path.Combine("puzzle_input", $"{year}", $"Day{day}.txt");
         if (!File.Exists(path))
         {
             throw new FileNotFoundException($"Could not load puzzle input from path '{path}'. " +

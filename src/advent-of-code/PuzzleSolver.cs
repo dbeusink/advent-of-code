@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using System.Reflection;
-using AdventOfCode2023.Puzzles;
-namespace AdventOfCode2023;
+namespace AdventOfCode;
 
 internal class PuzzleSolver
 {
@@ -20,8 +19,9 @@ internal class PuzzleSolver
         }
     }
 
-    public void SolvePuzzle(string name)
+    public void SolvePuzzle(int year, int day)
     {
+        string name = $"{year}.{day}";
         if (_puzzles.TryGetValue(name, out var puzzle))
         {
             SolvePuzzle(puzzle);
@@ -32,7 +32,7 @@ internal class PuzzleSolver
         }
     }
 
-    private void SolvePuzzle(PuzzleBase puzzle)
+    private static void SolvePuzzle(PuzzleBase puzzle)
     {
         try
         {

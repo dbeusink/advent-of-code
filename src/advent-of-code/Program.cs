@@ -1,6 +1,6 @@
-﻿using AdventOfCode2023;
+﻿using AdventOfCode;
 
-Console.WriteLine("\u001b[1;92m-- Advent of code 2023 --\u001b[0m");
+Console.WriteLine("\u001b[1;92m-- Advent of Code --\u001b[0m");
 
 var commands = GetCommands();
 GlobalSettings.LoadFromCommands(commands);
@@ -8,7 +8,7 @@ GlobalSettings.LoadFromCommands(commands);
 try
 {
     var solver = new PuzzleSolver();
-    if (commands.TryGetValue('d', out var day))
+    if (commands.TryGetValue('d', out string day) && commands.TryGetValue('y', out string year))
     {
         if (day.All(char.IsNumber))
         {
